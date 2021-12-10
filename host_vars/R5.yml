@@ -1,0 +1,12 @@
+networks:
+  - address: 10.0.0.0
+    wildcard_bits: 0.0.0.255
+    area: 0
+  - address: 1.0.0.0
+    wildcard_bits: 0.0.0.255
+    area: 0
+l3_interfaces_config:
+  - name: Ethernet0/1
+    address: 10.0.0.2/24
+  - name: Ethernet0/2
+    address: 1.0.0.1/24
