@@ -23,7 +23,7 @@ for ip in ip_address:
         "username": 'cisco',
         "port": 22,
         "device_type": 'cisco_ios',
-        "key_file": '/home/ubuntu/.ssh/id_rsa',
+        "key_file": './id_rsa',
         "secret": 'c!sco'
     }
     test_ospf()
