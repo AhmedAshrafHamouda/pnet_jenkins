@@ -15,5 +15,11 @@ pipeline {
       }
     }
 
+    stage('Deploy') {
+      steps {       
+          sh 'bash $WORKSPACE/Deploy/deployscript.sh'
+      }
+    }
+
   }
 }
