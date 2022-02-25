@@ -1,17 +1,21 @@
 networks:
-  - address: 11.0.0.0
-    wildcard_bits: 0.0.0.255
+  - address: 192.168.1.52
+    wildcard_bits: 0.0.0.3
     area: 1
-  - address: 13.0.0.0
-    wildcard_bits: 0.0.0.255
+  - address: 192.168.1.64
+    wildcard_bits: 0.0.0.3
     area: 1
-  - address: 4.0.0.0
-    wildcard_bits: 0.0.0.255
+  - address: 192.168.1.16
+    wildcard_bits: 0.0.0.7
     area: 1
 l3_interfaces_config:
   - name: Ethernet0/1
-    address: 11.0.0.2/24
+    address: 192.168.1.54/30
   - name: Ethernet0/2
-    address: 13.0.0.1/24
+    address: 192.168.1.65/30
   - name: Ethernet0/3
-    address: 4.0.0.1/24
+    address: 192.168.1.17/29
+dhcp:
+  pool: R16
+  network: 192.168.1.16
+  default_router: 192.168.1.17

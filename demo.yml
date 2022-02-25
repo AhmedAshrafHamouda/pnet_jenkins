@@ -21,7 +21,7 @@
             - address: "{{item.address}}"
         with_items: "{{l3_interfaces_config}}"
 
-      - name: Configure OSPF On Routers Areas
+      - name: Configure OSPF On Routers
         cisco.ios.ios_ospfv2:
           config:
             processes:
@@ -31,6 +31,13 @@
           state: replaced
         with_items: "{{networks}}"
       
-      - name: Save Configurations
+      - name: Configure DHCP Server & Save All Configurations
         ios_config:
-          save_when: always
+          lines:
+            - ip dhcp pool {{dhcp.pool}}
+            - network {{dhcp.network}} 255.255.255.248
+            - default-router {{dhcp.default_router}}
+            - dns-server 8.8.8.8
+          parents: ip dhcp excluded-address {{dhcp.default_router}}
+          save_when: changed
+        when: dhcp is defined

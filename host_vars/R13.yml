@@ -1,12 +1,12 @@
 networks:
-  - address: 12.0.0.0
-    wildcard_bits: 0.0.0.255
+  - address: 192.168.1.60
+    wildcard_bits: 0.0.0.3
     area: 2
-  - address: 8.0.0.0
-    wildcard_bits: 0.0.0.255
+  - address: 192.168.1.56
+    wildcard_bits: 0.0.0.3
     area: 2
 l3_interfaces_config:
   - name: Ethernet0/1
-    address: 12.0.0.1/24
+    address: 192.168.1.61/30
   - name: Ethernet0/2
-    address: 8.0.0.2/24
+    address: 192.168.1.58/30

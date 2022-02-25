@@ -9,9 +9,9 @@ def test_ospf():
     ospf_state = False
     connection = ConnectHandler(**router)
     neighbors = connection.send_command('sh ip ospf neighbor | count  FULL').split('= ')[1]
-    print(f"Host: {colored(router['host'], 'green')}" + f" Neighbors Count: {colored(neighbors, 'blue')}")
     if neighbors != 0:
         ospf_state = True
+        print(f"Host: {colored(router['host'], 'green')}" + f" Neighbors Count: {colored(neighbors, 'blue')}")
     connection.disconnect()
     assert(ospf_state == True)
     
